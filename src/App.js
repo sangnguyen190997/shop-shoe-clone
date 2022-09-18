@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Footer from "./Layouts/Footer";
+import Header from "./Layouts/Header";
+import Videobg from "./Components/Videobg";
+import { Route, Routes } from "react-router-dom";
+import publicRoutes from "./Routes/routes";
+import DefaultLayout from "./Layouts";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      {publicRoutes.map((route, index) => {
+        const Component = route.component;
+        return (
+          <Route
+            key={index}
+            path={route.path}
+            element={
+              <DefaultLayout>
+                <Component />
+              </DefaultLayout>
+            }
+          ></Route>
+        );
+      })}
+    </Routes>
   );
 }
 

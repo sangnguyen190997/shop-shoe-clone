@@ -1,13 +1,55 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+
+.section-title::after {
+    content:' ';
+    position:absolute;  
+    height: 0;
+    width: 0;
+    border-top: 1rem solid transparent;
+    border-bottom: 1rem solid transparent;
+    border-left: 1.5rem solid rgb(252, 211, 77);
+  }
+
+  .active {
+    border-bottom: 2px solid rgb(252, 211, 77);
+    font-weight:500;
+    animation: underline 0.5s linear  forwards ;
+  }
+
+  .checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 1.5rem; 
+    margin-top: 0.5rem;  
+    cursor: pointer;
+    font-weight: 400;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 50%;
+    -webkit-translate: 0 -0.5rem;
+    -ms-translate: 0 -0.5rem;
+    translate: 0 -0.5rem;
+    left: 0;
+    height: 0.875rem;
+    width: 0.875rem;
+    border: 0.5px solid black;
+    background-color: white;
+  }
+
+  .checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
